@@ -29,5 +29,18 @@ var assert = {
     else {
       console.log("Assertion passed: " + paramOne + " is equal to " + paramTwo)
     }
+  },
+  throwError: function(methodToCheck) {
+    var catchCalled = false
+    try {
+      methodToCheck();
+    }
+    catch(error) {
+      catchCalled = true
+      console.log("Assertion passed: " + methodToCheck + " did throw an error")
+    }
+    if(catchCalled == false) {
+      throw new Error("Assertion !FAILED!: " + methodToCheck + " did not throw an error")
+    }
   }
 };
