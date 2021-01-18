@@ -6,3 +6,4 @@ node node_modules/http-server/bin/http-server
 Syntax is as Jasmine. Check 'assert' block in bulldog/bulldog.js for matchers. Run bulldogRunner.html and check the console for results.
 
 ## MVP Diagram
+![Image](https://i.imgur.com/XHoXXsr.png)
