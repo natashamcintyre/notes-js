@@ -8,4 +8,8 @@ class Notes {
     return this.allNotes
   }
 
+  add(note) {
+    this.allNotes.push(note)
+  }
+
 }
