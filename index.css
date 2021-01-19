@@ -3,6 +3,14 @@ body {
 }
 
 .collapsible {
-  width: 25px;
+  width: 25%;
   background-color: lightpink;
+}
+
+.content {
+  display: none;
+}
+
+.active {
+  background-color: #363636;
 }

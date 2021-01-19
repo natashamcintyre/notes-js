@@ -18,11 +18,14 @@ function updateText(note) {
 
 console.log(document.getElementsByClassName('collapsible'));
 document.getElementsByClassName('collapsible')[0].onclick = function () {
-  this.classList.toggle("active");
-  var content = this.nextElementSibling;
+  var note = this.nextElementSibling;
+  var content = note.nextElementSibling;
+  this.classList.toggle("active")
   if (content.style.display === "block") {
     content.style.display = "none";
+    note.style.display = 'block';
   } else {
     content.style.display = "block";
+    note.style.display = 'none';
   }
 }
