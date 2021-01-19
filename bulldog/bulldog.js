@@ -1,3 +1,14 @@
+class Mock {
+  constructor() {
+    this.method = {}
+  }
+
+  addMethod(method, response) {
+    this.method[method] = response
+  }
+}
+
+
 function describe(string, myCallback) {
   console.log(string)
   myCallback();
@@ -23,6 +34,8 @@ var assert = {
     }
   },
   equalTo: function(paramOne, paramTwo) {
+    console.log(paramOne)
+    console.log(paramTwo)
     if(paramOne != paramTwo) {
       throw new Error("Assertion !FAILED!: " + paramOne + " is not equal to " + paramTwo);
     }
