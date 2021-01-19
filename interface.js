@@ -14,4 +14,15 @@ function updateText(note) {
     myNote.addText(text);
     console.log(myNote)
     updateText(myNote);
-  } 
+  }
+
+console.log(document.getElementsByClassName('collapsible'));
+document.getElementsByClassName('collapsible')[0].onclick = function () {
+  this.classList.toggle("active");
+  var content = this.nextElementSibling;
+  if (content.style.display === "block") {
+    content.style.display = "none";
+  } else {
+    content.style.display = "block";
+  }
+}

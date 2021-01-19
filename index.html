@@ -4,18 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notes</title>
+  <link rel="stylesheet" href="index.css" type="text/css">
   <script src='src/note.js'></script>
 </head>
 <body>
   <h1 id='header'>Notes</h1>
   <form id='newtext'>
     <textarea id='text' name='text' rows='4' cols='50'></textarea><br>
-  </form>  
-    <button type='submit' form='newnote' value='Submit' id='new-note'>New Note</button>  
+  </form>
+    <button type='submit' form='newnote' value='Submit' id='new-note'>New Note</button>
   <div>
-    <p id='note'></p>
+    <p class='collapsible' id='shorthand'>gibberish first 20 chars</p>
+    <p class="content">Actual note</p>
   </div>
-  
+
 </body>
 <script src='interface.js'></script>
 </html>
