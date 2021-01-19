@@ -1,5 +1,14 @@
+var notes = new Notes();
 function updateText(note) {
   document.getElementById('note').textContent = note.text;
+}
+function updateList(notes) {
+  document.getElementById('note-list').innerHTML = ""
+  notes.all().forEach(function(note) {
+    listItem = document.createElement('li');
+    listItem.innerHTML = note.text
+    document.getElementById('note-list').appendChild(listItem)
+  })
 }
   // document.getElementById('note').innerHTML = note.text
 // function newNote () {
@@ -13,5 +22,6 @@ function updateText(note) {
     var text = document.getElementById('text').value;
     myNote.addText(text);
     console.log(myNote)
-    updateText(myNote);
+    notes.add(myNote)
+    updateList(notes)
   } 

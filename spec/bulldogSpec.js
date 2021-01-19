@@ -24,4 +24,10 @@ describe("Describe block:", function() {
     assert.throwError(errorTestTwo)
   })
 
+  it("testing the mocks - can stub a method", function(){
+    var mock = new Mock();
+    mock.addMethod('stub', 'stubResponse')
+    console.log(mock.method['stub'])
+  })
+
 })
