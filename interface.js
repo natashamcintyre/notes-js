@@ -16,16 +16,25 @@ function updateText(note) {
     updateText(myNote);
   }
 
-console.log(document.getElementsByClassName('collapsible'));
-document.getElementsByClassName('collapsible')[0].onclick = function () {
-  var note = this.nextElementSibling;
-  var content = note.nextElementSibling;
-  this.classList.toggle("active")
-  if (content.style.display === "block") {
-    content.style.display = "none";
-    note.style.display = 'block';
-  } else {
-    content.style.display = "block";
-    note.style.display = 'none';
-  }
-}
+window.addEventListener("hashchange", function() {
+  // get end of url after hash
+  let index = window.location.hash.split("#")[1]
+  console.log(`hash change ${index}`)
+
+  // locate that note from notebook
+  // display that note
+})
+
+// console.log(document.getElementsByClassName('collapsible'));
+// document.getElementsByClassName('collapsible')[0].onclick = function () {
+//   var note = this.nextElementSibling;
+//   var content = note.nextElementSibling;
+//   this.classList.toggle("active")
+//   if (content.style.display === "block") {
+//     content.style.display = "none";
+//     note.style.display = 'block';
+//   } else {
+//     content.style.display = "block";
+//     note.style.display = 'none';
+//   }
+// }
