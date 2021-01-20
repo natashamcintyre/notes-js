@@ -1,0 +1,47 @@
+html {
+  height: 100%;
+  background-image: linear-gradient(to bottom right, rgb(244, 218, 117), #e99c49);
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  max-width: 500px;
+  margin: auto;
+}
+
+textarea {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  color: black;
+  text-shadow: 2px 2px #e99c49;
+}
+
+ul {
+  list-style-image: url('img/1f34d.png');
+  position: relative;
+  right: 60px
+}
+
+ul li {
+  font-family: 'Raleway', sans-serif;
+  background: #f9fbfe;
+  margin: 20px;
+  text-indent: 10px;
+  padding: 10px 0;
+}
+
+#new-note {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 2px solid #e99c49;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+#new-note:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
