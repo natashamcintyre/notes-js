@@ -6,7 +6,7 @@ function updateList(notes) {
   document.getElementById('note-list').innerHTML = ""
   notes.all().forEach(function(note) {
     listItem = document.createElement('li');
-    listItem.innerHTML = note.text
+    listItem.innerHTML = note.shortText()
     document.getElementById('note-list').appendChild(listItem)
   })
 }
