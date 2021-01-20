@@ -1,0 +1,32 @@
+div#note-list {
+  display: inline-grid;
+}
+
+div#note-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+div#displayed-note {
+  background: yellow;
+  border: #ffd650 solid 2px;
+  padding: 10px;
+  text-align: center;
+  width: 33%;
+  min-height: 180px;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: #e93ae0;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #a30808;
+  cursor: pointer;
+}
