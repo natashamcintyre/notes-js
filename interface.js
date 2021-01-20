@@ -5,8 +5,8 @@ function updateText(note) {
 function updateList(notes) {
   document.getElementById('note-list').innerHTML = ""
   notes.all().forEach(function(note, index) {
-    listItem = document.createElement('li');
-    listItem.id = index
+    let listItem = document.createElement('a');
+    listItem.href = '#' + index
     listItem.innerHTML = note.shortText()
     document.getElementById('note-list').appendChild(listItem)
   })
@@ -25,4 +25,15 @@ function updateList(notes) {
     console.log(myNote)
     notes.add(myNote)
     updateList(notes)
-  } 
+  }
+
+window.addEventListener("hashchange", function() {
+  let id = window.location.hash.split("#")[1];
+  console.log(id);
+  display(notes.all()[id]);
+})
+
+function display(note) {
+  console.log(`I am in the display(note) function`)
+  document.getElementById('displayed-note').innerHTML = note.text
+}
