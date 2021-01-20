@@ -5,9 +5,11 @@ function updateText(note) {
 function updateList(notes) {
   document.getElementById('note-list').innerHTML = ""
   notes.all().forEach(function(note, index) {
-    let listItem = document.createElement('a');
-    listItem.href = '#' + index
-    listItem.innerHTML = note.shortText()
+    let listLink = document.createElement('a');
+    let listItem = document.createElement('li');
+    listLink.href = '#' + index
+    listLink.innerHTML = note.shortText()
+    listItem.appendChild(listLink)
     document.getElementById('note-list').appendChild(listItem)
   })
 }
