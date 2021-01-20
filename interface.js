@@ -20,8 +20,8 @@ window.addEventListener("hashchange", function() {
   // get end of url after hash
   let index = window.location.hash.split("#")[1]
   console.log(`hash change ${index}`)
-
   // locate that note from notebook
+
   // display that note
 })
 
