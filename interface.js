@@ -4,9 +4,12 @@ function updateText(note) {
 }
 function updateList(notes) {
   document.getElementById('note-list').innerHTML = ""
-  notes.all().forEach(function(note) {
-    listItem = document.createElement('li');
-    listItem.innerHTML = note.text
+  notes.all().forEach(function(note, index) {
+    let listLink = document.createElement('a');
+    let listItem = document.createElement('li');
+    listLink.href = '#' + index
+    listLink.innerHTML = note.shortText()
+    listItem.appendChild(listLink)
     document.getElementById('note-list').appendChild(listItem)
   })
 }
@@ -24,4 +27,15 @@ function updateList(notes) {
     console.log(myNote)
     notes.add(myNote)
     updateList(notes)
-  } 
+  }
+
+window.addEventListener("hashchange", function() {
+  let id = window.location.hash.split("#")[1];
+  console.log(id);
+  display(notes.all()[id]);
+})
+
+function display(note) {
+  console.log(`I am in the display(note) function`)
+  document.getElementById('displayed-note').innerHTML = note.text
+}

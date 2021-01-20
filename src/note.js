@@ -1,11 +1,15 @@
 class Note {
   constructor() {
-    this.text = "Hello"
+    this.text = ""
   }
 
   addText(text) {
     this.text = text;
   }
-}
 
-var note = new Note();
+  shortText() {
+    return (this.text.substring(0, 20) + '...')
+  }
+
+
+}
