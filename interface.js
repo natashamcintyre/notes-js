@@ -25,6 +25,7 @@ document.getElementById('new-note').onclick = function() {
   console.log(myNote)
   notes.add(myNote)
   updateList(notes)
+  document.getElementById("text").value = "";
 }
 
 window.addEventListener("hashchange", function() {
