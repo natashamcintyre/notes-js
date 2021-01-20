@@ -4,8 +4,9 @@ function updateText(note) {
 }
 function updateList(notes) {
   document.getElementById('note-list').innerHTML = ""
-  notes.all().forEach(function(note) {
+  notes.all().forEach(function(note, index) {
     listItem = document.createElement('li');
+    listItem.id = 'note' + index
     listItem.innerHTML = note.shortText()
     document.getElementById('note-list').appendChild(listItem)
   })
