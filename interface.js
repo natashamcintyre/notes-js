@@ -53,20 +53,30 @@ function display(note) {
   }
 }
 
-    function getEmojis(body, id) {
-      fetch('https://makers-emojify.herokuapp.com/', {
-      method: 'POST',
-      body: JSON.stringify({ text: body}),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      })
-        .then(
-          function(response) {
-            response.json().then(function(data) {
-              console.log(data);
-              document.getElementById(id).innerHTML = data.emojified_text;
-            });
-          }
-        )
+function getEmojis(body, id) {
+  fetch('https://makers-emojify.herokuapp.com/', {
+  method: 'POST',
+  body: JSON.stringify({ text: body}),
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  })
+    .then(
+      function(response) {
+        response.json().then(function(data) {
+          console.log(data);
+          document.getElementById(id).innerHTML = data.emojified_text;
+        });
       }
+    )
+  }
+
+  function noteToStorage() {
+    localStorage.setItem("notes", JSON.stringify(notes.all()))
+  }
+  
+  function retrieveNote() {
+    var retrieveStorage = JSON.parse(localStorage.notes)
+    return retrieveStorage
+  }
+  
