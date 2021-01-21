@@ -1,5 +1,10 @@
 var notes = new Notes();
 
+window.onload = function() {
+  retrieveNotes()
+  updateList(notes)
+}
+
 function updateText(note) {
   document.getElementById('note').textContent = note.text;
 }
@@ -19,13 +24,13 @@ function updateList(notes) {
 
 document.getElementById('new-note').onclick = function() {
   console.log('hello')
-  // event.preventDefault();
   var myNote = new Note();
   var text = document.getElementById('text').value;
   myNote.addText(text);
   console.log(myNote)
   notes.add(myNote)
   updateList(notes)
+  noteToStorage()
   document.getElementById("text").value = "";
 }
 
@@ -71,12 +76,17 @@ function getEmojis(body, id) {
     )
   }
 
-  function noteToStorage() {
-    localStorage.setItem("notes", JSON.stringify(notes.all()))
+function noteToStorage() {
+  localStorage.setItem("notes", JSON.stringify(notes.all()))
+}
+
+function retrieveNotes() {
+  console.log(`retrieving notes`)
+  var retrieveStorage = JSON.parse(localStorage.notes)
+// if storage is empty?
+  for (let i = 0; i < retrieveStorage.length; i++) {
+    let note = new Note()
+    note.addText(retrieveStorage[i].text)
+    notes.add(note)
   }
-  
-  function retrieveNote() {
-    var retrieveStorage = JSON.parse(localStorage.notes)
-    return retrieveStorage
-  }
-  
+}
