@@ -10,7 +10,8 @@ function updateList(notes) {
     let listLink = document.createElement('a');
     let listItem = document.createElement('li');
     listLink.href = '#' + index
-    getListEmojis(note.shortText(), listLink)
+    listLink.id = 'note' + index
+    getEmojis(note.shortText(), listLink.id)
     listItem.appendChild(listLink)
     document.getElementById('note-list').appendChild(listItem)
   })
@@ -39,7 +40,7 @@ function display(note) {
   modal.style.display = "block";
   console.log(`I am in the display(note) function`)
   var body = note.text
-  getModalEmojis(body)
+  getEmojis(body, "modal-text")
   document.getElementsByClassName("close")[0].onclick = function() {
     modal.style.display = "none";
     history.replaceState(null, null, ' ');
@@ -52,38 +53,20 @@ function display(note) {
   }
 }
 
-function getModalEmojis(body) {
-  fetch('https://makers-emojify.herokuapp.com/', {
-  method: 'POST',
-  body: JSON.stringify({ text: body}),
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  })
-    .then(
-      function(response) {
-        response.json().then(function(data) {
-          console.log(data);
-          document.getElementById("modal-text").innerHTML = data.emojified_text;
-        });
+    function getEmojis(body, id) {
+      fetch('https://makers-emojify.herokuapp.com/', {
+      method: 'POST',
+      body: JSON.stringify({ text: body}),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      })
+        .then(
+          function(response) {
+            response.json().then(function(data) {
+              console.log(data);
+              document.getElementById(id).innerHTML = data.emojified_text;
+            });
+          }
+        )
       }
-    )
-  }
-
-  function getListEmojis(body, listLink) {
-    fetch('https://makers-emojify.herokuapp.com/', {
-    method: 'POST',
-    body: JSON.stringify({ text: body}),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    })
-      .then(
-        function(response) {
-          response.json().then(function(data) {
-            console.log(data);
-            listLink.innerHTML = data.emojified_text;
-          });
-        }
-      )
-    }
