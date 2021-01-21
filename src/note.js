@@ -8,7 +8,7 @@ class Note {
   }
 
   shortText() {
-    return (this.text.substring(0, 20) + '...')
+    return (this.text.substring(0, 20) + ' ...')
   }
 
 
