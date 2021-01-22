@@ -24,7 +24,7 @@ function it(string, myCallback) {
   }
 }
 
-function clickOn(element) {
+async function clickOn(element) {
   console.log('in clickOn')
   document.getElementById(element).click();
 }
