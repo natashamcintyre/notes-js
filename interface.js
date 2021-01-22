@@ -23,11 +23,9 @@ function updateList(notes) {
 }
 
 document.getElementById('new-note').onclick = function() {
-  console.log('hello')
   var myNote = new Note();
   var text = document.getElementById('text').value;
   myNote.addText(text);
-  console.log(myNote)
   notes.add(myNote)
   updateList(notes)
   noteToStorage()
@@ -36,14 +34,12 @@ document.getElementById('new-note').onclick = function() {
 
 window.addEventListener("hashchange", function() {
   let id = window.location.hash.split("#")[1];
-  console.log(id);
   display(notes.all()[id]);
 })
 
 function display(note) {
   var modal = document.getElementById("myModal");
   modal.style.display = "block";
-  console.log(`I am in the display(note) function`)
   var body = note.text
   getEmojis(body, "modal-text")
   document.getElementsByClassName("close")[0].onclick = function() {
@@ -60,21 +56,17 @@ function display(note) {
 
 function getEmojis(body, id) {
   fetch('https://makers-emojify.herokuapp.com/', {
-  method: 'POST',
-  body: JSON.stringify({ text: body}),
-  headers: {
-    'Content-Type': 'application/json',
-  },
+    method: 'POST',
+    body: JSON.stringify({ text: body}),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(function(response) {
+    response.json().then(function(data) {
+      document.getElementById(id).innerHTML = data.emojified_text;
+    });
   })
-    .then(
-      function(response) {
-        response.json().then(function(data) {
-          console.log(data);
-          document.getElementById(id).innerHTML = data.emojified_text;
-        });
-      }
-    )
-  }
+}
 
 function noteToStorage() {
   localStorage.setItem("notes", JSON.stringify(notes.all()))
@@ -83,7 +75,6 @@ function noteToStorage() {
 function retrieveNotes() {
   console.log(`retrieving notes`)
   var retrieveStorage = JSON.parse(localStorage.notes)
-// if storage is empty?
   for (let i = 0; i < retrieveStorage.length; i++) {
     let note = new Note()
     note.addText(retrieveStorage[i].text)
