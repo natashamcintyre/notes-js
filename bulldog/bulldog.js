@@ -24,6 +24,15 @@ function it(string, myCallback) {
   }
 }
 
+async function clickOn(element) {
+  console.log('in clickOn')
+  document.getElementById(element).click();
+}
+
+function fillIn(element, text) {
+  document.getElementById(element).value = text;
+}
+
 var assert = {
   isTrue: function(assertionToCheck) {
     if (!assertionToCheck) {
@@ -55,5 +64,12 @@ var assert = {
     if(catchCalled == false) {
       throw new Error("Assertion !FAILED!: " + methodToCheck + " did not throw an error")
     }
+  },
+  pageContains: function(text) {
+      if (window.find(text)) {
+        console.log("Assertion passed: " + text + " found on page")
+      } else {
+        throw new Error("Assertion !FAILED!: " + text + " not found")
+      }
   }
 };
