@@ -25,6 +25,7 @@ function it(string, myCallback) {
 }
 
 function clickOn(element) {
+  console.log('in clickOn')
   document.getElementById(element).click();
 }
 
@@ -65,13 +66,10 @@ var assert = {
     }
   },
   pageContains: function(text) {
-    let mytext = text
-    setTimeout(function(mytext) {
-      if (window.find(mytext)) {
-        console.log("Assertion passed: " + mytext + " found on page")
+      if (window.find(text)) {
+        console.log("Assertion passed: " + text + " found on page")
       } else {
-        throw new Error("Assertion !FAILED!: " + mytext + " not found")
+        throw new Error("Assertion !FAILED!: " + text + " not found")
       }
-    }, 3000)
   }
 };
