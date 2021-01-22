@@ -24,8 +24,7 @@ function it(string, myCallback) {
   }
 }
 
-async function clickOn(element) {
-  console.log('in clickOn')
+function clickOn(element) {
   document.getElementById(element).click();
 }
 
@@ -43,8 +42,6 @@ var assert = {
     }
   },
   equalTo: function(paramOne, paramTwo) {
-    console.log(paramOne)
-    console.log(paramTwo)
     if(paramOne != paramTwo) {
       throw new Error("Assertion !FAILED!: " + paramOne + " is not equal to " + paramTwo);
     }
