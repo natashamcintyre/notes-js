@@ -44,7 +44,7 @@ function display(note) {
   getEmojis(body, "modal-text")
   document.getElementsByClassName("close")[0].onclick = function() {
     modal.style.display = "none";
-    history.replaceState(null, null, ' ');
+    history.replaceState(null, null, ' '); // this removes the hash from the url
   }
   window.onclick = function(event) {
     if (event.target == modal) {
